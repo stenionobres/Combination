@@ -41,10 +41,13 @@ namespace Combination
             Console.ReadLine();
             */
 
-            /*
-            var csn = new CSN(15, new int[] { 6, 7, 16, 20, 28, 47 });
-            csn.generateCombination(9, 1734);
-            */
+            var csn = new CSN(10, new int[] { 1, 2, 3, 4, 5 });
+            //var csn = new CSN(25, new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 });
+            //var csn = new CSN(25, new int[] { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 });
+            var csnValue = csn.calculate();
+            
+            var combinationGenerate = csn.generateCombination(15, 1);
+           
 
             LotofacilResults.process();
         }
