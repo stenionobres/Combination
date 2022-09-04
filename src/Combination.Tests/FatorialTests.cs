@@ -8,7 +8,7 @@ namespace Combination.Tests
     public class FatorialTests
     {
         [Test]
-        public void GivenNotExistingNumber_WhenFatorialIsCalculated_ThenAnExceptionIsGenerated()
+        public void GivenNumberLessThanZero_WhenFatorialIsCalculated_ThenAnExceptionIsGenerated()
         {
             var number = -1;
 
