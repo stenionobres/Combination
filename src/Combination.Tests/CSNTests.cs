@@ -8,7 +8,7 @@ namespace Combination.Tests
     public class CSNTests
     {
         [Test]
-        public void GivenFiveElementsAndCombinationWithThreeNumbers_WhenCSNIsCalculated_ThenNumberTwoIsGenerated()
+        public void GivenFiveElementsAndCombinationWithThreeNumbers_WhenCSNIsCalculated_ThenNumberOneIsGenerated()
         {
             var totalElements = 5;
             var combination = new List<int>() { 1, 2, 3 };
@@ -17,5 +17,6 @@ namespace Combination.Tests
 
             Assert.AreEqual(csnExpected, csnCalculated);
         }
+
     }
 }
