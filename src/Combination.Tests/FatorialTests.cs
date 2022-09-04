@@ -18,6 +18,16 @@ namespace Combination.Tests
         }
 
         [Test]
+        public void GivenNumberGreaterThanOneHundredAndSeventyOne_WhenFatorialIsCalculated_ThenAnExceptionIsGenerated()
+        {
+            var number = 172;
+
+            var exception = Assert.Throws<ApplicationException>(() => Fatorial.Get(number));
+
+            Assert.That(exception.Message, Is.EqualTo("Number must be between 0 and 171"));
+        }
+
+        [Test]
         public void GivenNumberZero_WhenFatorialIsCalculated_ThenNumberOneIsGenerated()
         {
             var number = 0;
