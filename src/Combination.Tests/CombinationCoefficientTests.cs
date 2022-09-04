@@ -5,7 +5,7 @@ using Combination.Core;
 namespace Combination.Tests
 {
     [TestFixture]
-    public class CombinationCoefficientTest
+    public class CombinationCoefficientTests
     {
         [Test]
         public void GivenTotalElementsLessThanOne_WhenCombinationCoefficientIsCalculated_ThenAnExceptionIsGenerated()
