@@ -14,7 +14,7 @@ namespace Combination.Tests
 
             var exception = Assert.Throws<ApplicationException>(() => Fatorial.Get(number));
 
-            Assert.That(exception.Message, Is.EqualTo("Numero deve estar entre 0 e 171"));
+            Assert.That(exception.Message, Is.EqualTo("Number must be between 0 and 171"));
         }
 
         [Test]

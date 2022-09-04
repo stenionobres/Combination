@@ -6,7 +6,7 @@ namespace Combination.Core
     {
         public static double Get(int number)
         {
-            if (number < 0 || number > 171) throw new ApplicationException("Numero deve estar entre 0 e 171");
+            if (number < 0 || number > 171) throw new ApplicationException("Number must be between 0 and 171");
 
             return _factorialCache[number];
         }
