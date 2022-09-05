@@ -29,7 +29,9 @@ namespace Combination.Core
                 LI = LI - R;
             }
 
-            CSN = LI + combination[combination.Count - 1] - (combination.Count - 2 < 0 ? 0: combination[combination.Count - 2]);
+            CSN = LI + combination[combination.Count - 1];
+
+            if (combination.Count - 2 >= 0) CSN = CSN - combination[combination.Count - 2];
 
             return CSN;
         }
