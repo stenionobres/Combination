@@ -8,7 +8,6 @@ namespace Combination.Core
         {
             var C = new int[combination.Count];
             var LI = 0;
-            var CSN = 0;
 
             for (int i = 1; i <= combination.Count - 1; i++)
             {
@@ -29,7 +28,7 @@ namespace Combination.Core
                 LI = LI - R;
             }
 
-            CSN = LI + combination[combination.Count - 1];
+            var CSN = LI + combination[combination.Count - 1];
 
             if (combination.Count - 2 >= 0) CSN = CSN - combination[combination.Count - 2];
 
