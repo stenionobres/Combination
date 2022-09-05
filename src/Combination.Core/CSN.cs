@@ -12,17 +12,16 @@ namespace Combination.Core
 
             for (int i = 1; i <= combination.Count - 1; i++)
             {
-                C[i] = 0;
                 if (i != 1) C[i] = C[i - 1];
 
-                C[i] = C[i] + 1; //2001
+                C[i]++;
 
                 var R = CombinationCoefficient.Calculate(totalElements - C[i], combination.Count - i);
                 LI = LI + R;
 
                 while (C[i] < combination[i-1])
                 {
-                    C[i] = C[i] + 1; //2001
+                    C[i]++;
                     R = CombinationCoefficient.Calculate(totalElements - C[i], combination.Count - i);
                     LI = LI + R;
                 }
