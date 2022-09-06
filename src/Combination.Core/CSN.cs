@@ -6,15 +6,16 @@ namespace Combination.Core
     {
         public static int Calculate(int totalElements, List<int> combination)
         {
-            var r = CombinationCoefficient.Calculate(totalElements, combination.Count);
+            var combinationSize = combination.Count;
+            var csn = CombinationCoefficient.Calculate(totalElements, combinationSize);
 
-            for (int i = 0; i < combination.Count; i++)
+            for (int i = 0; i < combinationSize; i++)
             {
-                if (totalElements - combination[i] >= combination.Count - i)
-                    r = r - CombinationCoefficient.Calculate(totalElements - combination[i], combination.Count - i);
+                if (totalElements - combination[i] >= combinationSize - i)
+                    csn = csn - CombinationCoefficient.Calculate(totalElements - combination[i], combinationSize - i);
             }
 
-            return r;
+            return csn;
         }
     }
 
