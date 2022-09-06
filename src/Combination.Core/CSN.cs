@@ -9,14 +9,14 @@ namespace Combination.Core
             var R = 0;
             var LI = 0;
 
-            for (int i = 1, j = 0; i <= combination.Count - 1; i++)
+            for (int i = 0, j = 0; i < combination.Count - 1; i++)
             {
                 do
                 {
                     j++;
-                    R = CombinationCoefficient.Calculate(totalElements - j, combination.Count - i);
+                    R = CombinationCoefficient.Calculate(totalElements - j, combination.Count - (i + 1));
                     LI = LI + R;
-                } while (j < combination[i - 1]);
+                } while (j < combination[i]);
 
                 LI = LI - R;
             }
