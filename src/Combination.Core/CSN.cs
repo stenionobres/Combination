@@ -6,20 +6,17 @@ namespace Combination.Core
     {
         public static int Calculate(int totalElements, List<int> combination)
         {
-            var C = new int[combination.Count];
             var R = 0;
             var LI = 0;
 
-            for (int i = 1; i <= combination.Count - 1; i++)
+            for (int i = 1, j = 0; i <= combination.Count - 1; i++)
             {
-                if (i != 1) C[i] = C[i - 1];
-
                 do
                 {
-                    C[i]++;
-                    R = CombinationCoefficient.Calculate(totalElements - C[i], combination.Count - i);
+                    j++;
+                    R = CombinationCoefficient.Calculate(totalElements - j, combination.Count - i);
                     LI = LI + R;
-                } while (C[i] < combination[i - 1]);
+                } while (j < combination[i - 1]);
 
                 LI = LI - R;
             }
