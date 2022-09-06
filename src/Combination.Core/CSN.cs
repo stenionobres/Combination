@@ -11,12 +11,12 @@ namespace Combination.Core
 
             for (int i = 0, j = 0; i < combination.Count - 1; i++)
             {
-                do
+                while (j < combination[i])
                 {
                     j++;
                     R = CombinationCoefficient.Calculate(totalElements - j, combination.Count - (i + 1));
                     LI = LI + R;
-                } while (j < combination[i]);
+                }
 
                 LI = LI - R;
             }
