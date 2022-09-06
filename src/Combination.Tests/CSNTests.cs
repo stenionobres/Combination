@@ -118,6 +118,39 @@ namespace Combination.Tests
         }
 
         [Test]
+        public void GivenSixtyElementsAndCombinationWithSixNumbers_WhenCSNIsCalculated_ThenNumber_34804260_IsGenerated()
+        {
+            var totalElements = 60;
+            var combination = new List<int>() { 11, 15, 25, 38, 44, 55 };
+            var csnExpected = 34804260;
+            var csnCalculated = CSN.Calculate(totalElements, combination);
+
+            Assert.AreEqual(csnExpected, csnCalculated);
+        }
+
+        [Test]
+        public void GivenSixtyElementsAndCombinationWithSixNumbers_WhenCSNIsCalculated_ThenNumber_3453564_IsGenerated()
+        {
+            var totalElements = 60;
+            var combination = new List<int>() { 1, 13, 33, 39, 57, 60 };
+            var csnExpected = 3453564;
+            var csnCalculated = CSN.Calculate(totalElements, combination);
+
+            Assert.AreEqual(csnExpected, csnCalculated);
+        }
+
+        [Test]
+        public void GivenSixtyElementsAndCombinationWithSixNumbers_WhenCSNIsCalculated_ThenNumber_24755381_IsGenerated()
+        {
+            var totalElements = 60;
+            var combination = new List<int>() { 7, 9, 44, 51, 52, 53 };
+            var csnExpected = 24755381;
+            var csnCalculated = CSN.Calculate(totalElements, combination);
+
+            Assert.AreEqual(csnExpected, csnCalculated);
+        }
+
+        [Test]
         public void GivenTwentyFiveElementsAndCombinationWithFifteenNumbers_WhenCSNIsCalculated_ThenNumberOneIsGenerated()
         {
             var totalElements = 25;
