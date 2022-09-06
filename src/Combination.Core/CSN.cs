@@ -10,8 +10,8 @@ namespace Combination.Core
 
             for (int i = 0; i < combination.Count; i++)
             {
-                if (totalElements - combination[i] < combination.Count - i) continue;
-                r = r - CombinationCoefficient.Calculate(totalElements - combination[i], combination.Count - i);
+                if (totalElements - combination[i] >= combination.Count - i)
+                    r = r - CombinationCoefficient.Calculate(totalElements - combination[i], combination.Count - i);
             }
 
             return r;
