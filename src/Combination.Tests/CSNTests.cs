@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using Combination.Core;
 using System.Collections.Generic;
 
@@ -7,6 +8,17 @@ namespace Combination.Tests
     [TestFixture]
     public class CSNTests
     {
+        [Test]
+        public void GivenANullCombination_WhenCSNIsCalculated_ThenAnExceptionIsGenerated()
+        {
+            var totalElements = 0;
+            List<int> combination = null;
+
+            var exception = Assert.Throws<ApplicationException>(() => CSN.Calculate(totalElements, combination));
+
+            Assert.That(exception.Message, Is.EqualTo("Combination parameter cannot be null"));
+        }
+
         [Test]
         public void GivenTwoElementsAndCombinationWithTwoNumbers_WhenCSNIsCalculated_ThenNumberOneIsGenerated()
         {

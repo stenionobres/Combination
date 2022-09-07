@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Combination.Core
 {
@@ -6,6 +7,8 @@ namespace Combination.Core
     {
         public static int Calculate(int totalElements, List<int> combination)
         {
+            if (combination == null) throw new ApplicationException("Combination parameter cannot be null");
+
             var combinationSize = combination.Count;
             var csn = CombinationCoefficient.Calculate(totalElements, combinationSize);
 
