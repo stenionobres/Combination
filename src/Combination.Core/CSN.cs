@@ -9,6 +9,8 @@ namespace Combination.Core
             var combinationSize = combination.Count;
             var csn = CombinationCoefficient.Calculate(totalElements, combinationSize);
 
+            combination.Sort();
+
             for (int i = 0; i < combinationSize; i++)
             {
                 if (totalElements - combination[i] >= combinationSize - i)

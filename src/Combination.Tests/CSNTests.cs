@@ -41,6 +41,17 @@ namespace Combination.Tests
         }
 
         [Test]
+        public void GivenFiveElementsAndCombinationWithThreeNumbersNotOrdered_WhenCSNIsCalculated_ThenNumberOneIsGenerated()
+        {
+            var totalElements = 5;
+            var combination = new List<int>() { 1, 3, 2 };
+            var csnExpected = 1;
+            var csnCalculated = CSN.Calculate(totalElements, combination);
+
+            Assert.AreEqual(csnExpected, csnCalculated);
+        }
+
+        [Test]
         public void GivenFiveElementsAndCombinationWithThreeNumbers_WhenCSNIsCalculated_ThenNumberThreeIsGenerated()
         {
             var totalElements = 5;
@@ -78,6 +89,17 @@ namespace Combination.Tests
         {
             var totalElements = 15;
             var combination = new List<int>() { 2, 5, 7, 8, 10 };
+            var csnExpected = 1424;
+            var csnCalculated = CSN.Calculate(totalElements, combination);
+
+            Assert.AreEqual(csnExpected, csnCalculated);
+        }
+
+        [Test]
+        public void GivenFifteenElementsAndCombinationWithFiveNumbersNotOrdered_WhenCSNIsCalculated_ThenNumber_1424_IsGenerated()
+        {
+            var totalElements = 15;
+            var combination = new List<int>() { 2, 7, 5, 10, 8 };
             var csnExpected = 1424;
             var csnCalculated = CSN.Calculate(totalElements, combination);
 
