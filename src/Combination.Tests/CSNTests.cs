@@ -254,6 +254,30 @@ namespace Combination.Tests
         //------------------------------------------ Generation Combination Tests ---------------------------------------------------
 
         [Test]
+        public void GivenTwoElementsAndCombinationSizeEqualTwoAndCSNEqualOne_WhenCombinationIsCalculated_Then_1_2_IsGenerated()
+        {
+            var totalElements = 2;
+            var combinationSize = 2;
+            var csn = 1;
+            var combinationExpected = new List<int>() { 1, 2 };
+            var combinationGenerated = CSN.GenerateCombination(totalElements, combinationSize, csn);
+
+            Assert.IsTrue(combinationGenerated.SequenceEqual(combinationExpected));
+        }
+
+        [Test]
+        public void GivenTwoElementsAndCombinationSizeEqualOneAndCSNEqualTwo_WhenCombinationIsCalculated_Then_2_IsGenerated()
+        {
+            var totalElements = 2;
+            var combinationSize = 1;
+            var csn = 2;
+            var combinationExpected = new List<int>() { 2 };
+            var combinationGenerated = CSN.GenerateCombination(totalElements, combinationSize, csn);
+
+            Assert.IsTrue(combinationGenerated.SequenceEqual(combinationExpected));
+        }
+
+        [Test]
         public void GivenFiveElementsAndCombinationSizeEqualThreeAndCSNEqualOne_WhenCombinationIsCalculated_Then_1_2_3_IsGenerated()
         {
             var totalElements = 5;

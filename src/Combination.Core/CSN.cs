@@ -39,7 +39,7 @@ namespace Combination.Core
                 int pos = 0;
                 while (!done)
                 {
-                    if (max - pos <= 0)
+                    if (max - pos < i)
                     {
                         pos++;
                         break;
