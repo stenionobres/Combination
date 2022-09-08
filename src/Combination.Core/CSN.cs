@@ -29,10 +29,8 @@ namespace Combination.Core
             var remainingCSN = CombinationCoefficient.Calculate(totalElements, combinationSize) - csn;
             var partialCSN = 0;
 
-            for (int i = combinationSize; i > 0; i--)
+            for (int i = combinationSize, pos = 0; i > 0; i--)
             {
-                int pos = 0;
-
                 do
                 {
                     if (totalElements - pos < i)
