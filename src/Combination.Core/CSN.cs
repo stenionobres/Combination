@@ -31,7 +31,6 @@ namespace Combination.Core
 
             for (int i = combinationSize; i > 0; i--)
             {
-                var tVal = 0;
                 int pos = 0;
 
                 do
@@ -43,11 +42,10 @@ namespace Combination.Core
                     }
 
                     t = CombinationCoefficient.Calculate(totalElements - pos, i);
-                    tVal = t;
                     pos++;
                 } while (t > tId);
 
-                tId -= tVal;
+                tId -= t;
                 combination.Add(pos - 1);
             }
 
