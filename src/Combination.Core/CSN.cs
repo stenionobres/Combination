@@ -22,6 +22,43 @@ namespace Combination.Core
 
             return csn;
         }
+
+        public static List<int> GenerateCombination(int totalElements, int combinationSize, int csn)
+        {
+            
+            var combination = new List<int>();
+            var max = totalElements;
+            var combLength = combinationSize;
+            var id = csn;
+
+            var tId = CombinationCoefficient.Calculate(max, combLength) - id;
+            for (int i = combLength; i > 0; i--)
+            {
+                var tVal = 0;
+                bool done = false;
+                int pos = 0;
+                while (!done)
+                {
+                    if (max - pos <= 0)
+                    {
+                        pos++;
+                        break;
+                    }
+
+                    var t = CombinationCoefficient.Calculate(max - pos, i);
+                    if (t <= tId)
+                    {
+                        tVal = t;
+                        done = true;
+                    }
+                    pos++;
+                }
+                tId -= tVal;
+                combination.Add(pos - 1);
+            }
+
+            return combination;
+        }
     }
 
     /*

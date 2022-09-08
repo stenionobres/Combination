@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using Combination.Core;
 using System.Collections.Generic;
@@ -248,6 +249,20 @@ namespace Combination.Tests
             var csnCalculated = CSN.Calculate(totalElements, combination);
 
             Assert.AreEqual(csnExpected, csnCalculated);
+        }
+
+        //------------------------------------------ Generation Combination Tests ---------------------------------------------------
+
+        [Test]
+        public void GivenFiveElementsAndCombinationSizeEqualThreeAndCSNEqualOne_WhenCombinationIsCalculated_Then_1_2_3_IsGenerated()
+        {
+            var totalElements = 5;
+            var combinationSize = 3;
+            var csn = 1;
+            var combinationExpected = new List<int>() { 1, 2, 3 };
+            var combinationGenerated = CSN.GenerateCombination(totalElements, combinationSize, csn);
+
+            Assert.IsTrue(combinationGenerated.SequenceEqual(combinationExpected));
         }
     }
 }
