@@ -26,8 +26,8 @@ namespace Combination.Core
         public static List<int> GenerateCombination(int totalElements, int combinationSize, int csn)
         {
             var combination = new List<int>();
-            var tId = CombinationCoefficient.Calculate(totalElements, combinationSize) - csn;
-            var t = 0;
+            var remainingCSN = CombinationCoefficient.Calculate(totalElements, combinationSize) - csn;
+            var partialCSN = 0;
 
             for (int i = combinationSize; i > 0; i--)
             {
@@ -41,11 +41,11 @@ namespace Combination.Core
                         break;
                     }
 
-                    t = CombinationCoefficient.Calculate(totalElements - pos, i);
+                    partialCSN = CombinationCoefficient.Calculate(totalElements - pos, i);
                     pos++;
-                } while (t > tId);
+                } while (partialCSN > remainingCSN);
 
-                tId -= t;
+                remainingCSN -= partialCSN;
                 combination.Add(pos - 1);
             }
 
