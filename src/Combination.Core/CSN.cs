@@ -25,7 +25,6 @@ namespace Combination.Core
 
         public static List<int> GenerateCombination(int totalElements, int combinationSize, int csn)
         {
-            
             var combination = new List<int>();
             var max = totalElements;
             var combLength = combinationSize;
