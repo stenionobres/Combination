@@ -32,9 +32,9 @@ namespace Combination.Core
             for (int i = combinationSize; i > 0; i--)
             {
                 var tVal = 0;
-                bool done = false;
                 int pos = 0;
-                while (!done)
+
+                do
                 {
                     if (totalElements - pos < i)
                     {
@@ -43,13 +43,10 @@ namespace Combination.Core
                     }
 
                     t = CombinationCoefficient.Calculate(totalElements - pos, i);
-                    if (t <= tId)
-                    {
-                        tVal = t;
-                        done = true;
-                    }
+                    tVal = t;
                     pos++;
-                }
+                } while (t > tId);
+
                 tId -= tVal;
                 combination.Add(pos - 1);
             }
