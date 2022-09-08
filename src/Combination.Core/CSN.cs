@@ -27,6 +27,7 @@ namespace Combination.Core
         {
             var combination = new List<int>();
             var tId = CombinationCoefficient.Calculate(totalElements, combinationSize) - csn;
+            var t = 0;
 
             for (int i = combinationSize; i > 0; i--)
             {
@@ -41,7 +42,7 @@ namespace Combination.Core
                         break;
                     }
 
-                    var t = CombinationCoefficient.Calculate(totalElements - pos, i);
+                    t = CombinationCoefficient.Calculate(totalElements - pos, i);
                     if (t <= tId)
                     {
                         tVal = t;
