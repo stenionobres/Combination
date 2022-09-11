@@ -28,7 +28,7 @@ namespace Combination.Core
             var combination = new List<int>();
             var remainingCSN = CombinationCoefficient.Calculate(totalElements, combinationSize) - csn;
 
-            for (int i = combinationSize, partialCSN = 0, pos = 0; i > 0; i--)
+            for (int i = combinationSize, partialCSN, pos = 0; i > 0; i--)
             {
                 do
                 {
