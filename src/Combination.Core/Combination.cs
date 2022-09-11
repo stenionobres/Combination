@@ -27,6 +27,14 @@ namespace Combination.Core
             CSN = calculateCSN();
         }
 
+        public void buildWith(int csn)
+        {
+            if (csn < 1) throw new ApplicationException("CSN parameter must be greater than 0");
+
+            CSN = csn;
+            Elements = calculateCombination();
+        }
+
         private int calculateCSN()
         {
             var csn = CombinationCoefficient.Calculate(TotalElements, CombinationSize);
@@ -40,6 +48,26 @@ namespace Combination.Core
             }
 
             return csn;
+        }
+
+        private List<int> calculateCombination()
+        {
+            var combination = new List<int>();
+            var remainingCSN = CombinationCoefficient.Calculate(TotalElements, CombinationSize) - CSN;
+
+            for (int i = CombinationSize, partialCSN, pos = 0; i > 0; i--)
+            {
+                do
+                {
+                    partialCSN = CombinationCoefficient.Calculate(TotalElements - pos, i);
+                    pos++;
+                } while (partialCSN > remainingCSN);
+
+                remainingCSN -= partialCSN;
+                combination.Add(pos - 1);
+            }
+
+            return combination;
         }
     }
 }
