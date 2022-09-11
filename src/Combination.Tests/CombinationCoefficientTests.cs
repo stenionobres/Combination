@@ -8,33 +8,45 @@ namespace Combination.Tests
     public class CombinationCoefficientTests
     {
         [Test]
-        public void GivenTotalElementsLessThanOne_WhenCombinationCoefficientIsCalculated_ThenAnExceptionIsGenerated()
+        public void GivenTotalElementsLessThanZero_WhenCombinationCoefficientIsCalculated_ThenAnExceptionIsGenerated()
         {
-            var totalElements = 0;
-            var combinationSize = 1;
+            var totalElements = -1;
+            var combinationSize = -1;
             var exception = Assert.Throws<ApplicationException>(() => CombinationCoefficient.Calculate(totalElements, combinationSize));
 
-            Assert.That(exception.Message, Is.EqualTo("Total elements must be greater than 0"));
+            Assert.That(exception.Message, Is.EqualTo("Total elements must be greater than or equal to 0"));
         }
 
         [Test]
-        public void GivenCombinationSizeLessThanOne_WhenCombinationCoefficientIsCalculated_ThenAnExceptionIsGenerated()
+        public void GivenCombinationSizeLessThanZero_WhenCombinationCoefficientIsCalculated_ThenAnExceptionIsGenerated()
         {
             var totalElements = 1;
-            var combinationSize = 0;
+            var combinationSize = -1;
             var exception = Assert.Throws<ApplicationException>(() => CombinationCoefficient.Calculate(totalElements, combinationSize));
 
-            Assert.That(exception.Message, Is.EqualTo("Combination size must be greater than 0"));
+            Assert.That(exception.Message, Is.EqualTo("Combination size must be greater than or equal to 0"));
         }
 
         [Test]
-        public void GivenTotalElementsLessThanCombinationSize_WhenCombinationCoefficientIsCalculated_ThenAnExceptionIsGenerated()
+        public void GivenTotalElementsLessThanCombinationSize_WhenCombinationCoefficientIsCalculated_ThenNumberZeroIsGenerated()
         {
             var totalElements = 1;
             var combinationSize = 2;
-            var exception = Assert.Throws<ApplicationException>(() => CombinationCoefficient.Calculate(totalElements, combinationSize));
+            var combinationCoefficientExpected = 0;
+            var combinationCoefficientCalculated = CombinationCoefficient.Calculate(totalElements, combinationSize);
 
-            Assert.That(exception.Message, Is.EqualTo("Total elements must be greater than or equal combination size"));
+            Assert.AreEqual(combinationCoefficientExpected, combinationCoefficientCalculated);
+        }
+
+        [Test]
+        public void GivenZeroElementAndZeroCombinationSize_WhenCombinationCoefficientIsCalculated_ThenNumberOneIsGenerated()
+        {
+            var totalElements = 0;
+            var combinationSize = 0;
+            var combinationCoefficientExpected = 1;
+            var combinationCoefficientCalculated = CombinationCoefficient.Calculate(totalElements, combinationSize);
+
+            Assert.AreEqual(combinationCoefficientExpected, combinationCoefficientCalculated);
         }
 
         [Test]

@@ -6,9 +6,9 @@ namespace Combination.Core
     {
         public static int Calculate(int totalElements, int combinationSize)
         {
-            if (totalElements < 1) throw new ApplicationException("Total elements must be greater than 0");
-            if (combinationSize < 1) throw new ApplicationException("Combination size must be greater than 0");
-            if (totalElements < combinationSize) throw new ApplicationException("Total elements must be greater than or equal combination size");
+            if (totalElements < combinationSize) return 0;
+            if (totalElements < 0) throw new ApplicationException("Total elements must be greater than or equal to 0");
+            if (combinationSize < 0) throw new ApplicationException("Combination size must be greater than or equal to 0");
 
             var totalElementsFatorial = Fatorial.Get(totalElements);
             var combinationSizeFatorial = Fatorial.Get(combinationSize);
