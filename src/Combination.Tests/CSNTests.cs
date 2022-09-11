@@ -10,14 +10,14 @@ namespace Combination.Tests
     public class CSNTests
     {
         [Test]
-        public void GivenTotalElementsEqualZero_WhenCSNIsCalculated_ThenAnExceptionIsGenerated()
+        public void GivenTotalElementsLessThanCombinationSize_WhenCSNIsCalculated_ThenNumberZeroIsGenerated()
         {
             var totalElements = 0;
             List<int> combination = new List<int> { 1, 2 };
+            var csnExpected = 0;
+            var csnCalculated = CSN.Calculate(totalElements, combination);
 
-            var exception = Assert.Throws<ApplicationException>(() => CSN.Calculate(totalElements, combination));
-
-            Assert.That(exception.Message, Is.EqualTo("Total elements must be greater than 0"));
+            Assert.AreEqual(csnExpected, csnCalculated);
         }
 
         [Test]
@@ -32,14 +32,14 @@ namespace Combination.Tests
         }
 
         [Test]
-        public void GivenCombinationSizeGreaterThanTotalElements_WhenCSNIsCalculated_ThenAnExceptionIsGenerated()
+        public void GivenCombinationSizeGreaterThanTotalElements_WhenCSNIsCalculated_ThenNumberZeroIsGenerated()
         {
             var totalElements = 2;
             List<int> combination = new List<int> { 1, 2, 3 };
+            var csnExpected = 0;
+            var csnCalculated = CSN.Calculate(totalElements, combination);
 
-            var exception = Assert.Throws<ApplicationException>(() => CSN.Calculate(totalElements, combination));
-
-            Assert.That(exception.Message, Is.EqualTo("Total elements must be greater than or equal combination size"));
+            Assert.AreEqual(csnExpected, csnCalculated);
         }
 
         [Test]

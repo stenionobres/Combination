@@ -33,12 +33,6 @@ namespace Combination.Core
             {
                 do
                 {
-                    if (totalElements - pos < i)
-                    {
-                        pos++;
-                        break;
-                    }
-
                     partialCSN = CombinationCoefficient.Calculate(totalElements - pos, i);
                     pos++;
                 } while (partialCSN > remainingCSN);
