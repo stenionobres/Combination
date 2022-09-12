@@ -7,6 +7,7 @@ namespace Combination.Core
     {
         public int TotalElements { get; }
         public int CombinationSize { get; }
+        public int GroupCount { get; }
         public int GroupSize { get; }
         public int NumberOfCombinations { get; }
         public Dictionary<int, int> CsnByGroup { get; } = new Dictionary<int, int>();
@@ -26,6 +27,7 @@ namespace Combination.Core
                 {
                     var csn = i + 1;
                     CsnByGroup.Add(csn, groupNumber);
+                    GroupCount = groupNumber;
                 }
                 groupNumber++;
             }
